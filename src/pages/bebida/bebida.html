@@ -6,14 +6,43 @@
   </ion-navbar>
 </ion-header>
 
-<ion-content>
+<ion-content padding>
   <ion-list>
-    <ion-item *ngFor='let x of bebidas'>
+    <ion-list-header>
+      Refrigerantes
+    </ion-list-header>
+    <ion-item *ngFor='let x of bebidas_refrigerante'>
       <ion-avatar item-start>
         <img src="../../assets/imgs/{{ x.img }}">
       </ion-avatar>
       <h2>{{x.nome}}</h2>
-      <p><b>Preço: </b>{{ x.preco }}</p>
+      <p><b>Preço: </b>R$ {{ x.preco }}</p>
+    </ion-item>
+  </ion-list>
+
+  <ion-list>
+    <ion-list-header>
+      Chás
+    </ion-list-header>
+    <ion-item *ngFor='let x of bebidas_cha'>
+      <ion-avatar item-start>
+        <img src="../../assets/imgs/{{ x.img }}">
+      </ion-avatar>
+      <h2>{{x.nome}}</h2>
+      <p><b>Preço: </b>R$  {{ x.preco }}</p>
+    </ion-item>
+  </ion-list>
+
+  <ion-list>
+    <ion-list-header>
+      Sucos
+    </ion-list-header>
+    <ion-item *ngFor='let x of bebidas_suco'>
+      <ion-avatar item-start>
+        <img src="../../assets/imgs/{{ x.img }}">
+      </ion-avatar>
+      <h2>{{x.nome}}</h2>
+      <p><b>Preço: </b>R$  {{ x.preco }}</p>
     </ion-item>
   </ion-list>
 </ion-content>

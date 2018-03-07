@@ -1,12 +1,33 @@
 <ion-header>
   <ion-navbar>
-    <ion-title>Àrea de Bolos</ion-title>
+    <ion-title>Àrea de Lanches</ion-title>
   </ion-navbar>
 </ion-header>
 
 <ion-content padding>
-  <h2>Welcome to Urgot Menu!</h2>
-  <p>
-    Começo do projeto feito no Ionic, para o trabalho de DDM.
-  </p>
+  <ion-list>
+    <ion-list-header>
+      Sanduíches
+    </ion-list-header>
+    <ion-item *ngFor='let x of sanduiches'>
+      <ion-avatar item-start>
+        <img src="../../assets/imgs/{{ x.img }}">
+      </ion-avatar>
+      <h2>{{x.nome}}</h2>
+      <p><b>Preço: </b>R$  {{ x.preco }}</p>
+    </ion-item>
+  </ion-list>
+
+  <ion-list>
+    <ion-list-header>
+    	Pastéis
+    </ion-list-header>
+    <ion-item *ngFor='let x of pasteis'>
+      <ion-avatar item-start>
+        <img src="../../assets/imgs/{{ x.img }}">
+      </ion-avatar>
+      <h2>{{x.nome}}</h2>
+      <p><b>Preço: </b>R$  {{ x.preco }}</p>
+    </ion-item>
+  </ion-list>
 </ion-content>
