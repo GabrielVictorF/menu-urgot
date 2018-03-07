@@ -1,9 +1,18 @@
-# menu-urgot
-# Instruções de uso
-O app Urgot Menu possui várias dependências, para rodar o modo desenvolvedor do projeto, basta seguir as seguintes etapas rápidas.
+# Menu Urgot
 
-*Entrar na pasta clonada
-*Rodar o comando '''javascript
-					npm init
-*Logo em seguida o comando '''javascript
-					ionic serve
+## Getting Started
+Entre na pasta
+Rode o comando: npm init
+Logo depois: ionic serve
+
+### Prerequisites
+Node.Js
+Ionic
+Cordova
+
+### Installing
+Ainda não compilado.
+
+## Authors
+* **Gabriel Victor** - *Initial work* - [GabrielProgammer](https://github.com/GabrielProgammer)
+* **Rhuan Marx** - *Initial work* - [rhuanmarx](https://github.com/rhuanmarx)
