@@ -1,0 +1,19 @@
+<ion-header>
+  <ion-navbar>
+    <ion-title>
+      Àrea de bebidas
+    </ion-title>
+  </ion-navbar>
+</ion-header>
+
+<ion-content>
+  <ion-list>
+    <ion-item *ngFor='let x of bebidas'>
+      <ion-avatar item-start>
+        <img src="../../assets/imgs/{{ x.img }}">
+      </ion-avatar>
+      <h2>{{x.nome}}</h2>
+      <p><b>Preço: </b>{{ x.preco }}</p>
+    </ion-item>
+  </ion-list>
+</ion-content>
