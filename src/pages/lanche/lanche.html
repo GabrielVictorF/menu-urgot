@@ -5,12 +5,13 @@
 </ion-header>
 
 <ion-content padding>
+   <img src="../../assets/imgs/logotipo.png" class="logotipo">
   <ion-list>
     <ion-list-header>
       Sanduíches
     </ion-list-header>
     <ion-item *ngFor='let x of sanduiches'>
-      <ion-avatar item-start>
+      <ion-avatar item-start (tap)="tapEvent(x)">
         <img src="../../assets/imgs/{{ x.img }}">
       </ion-avatar>
       <h2>{{x.nome}}</h2>

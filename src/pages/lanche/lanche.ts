@@ -2,13 +2,13 @@ import { Component } from '@angular/core';
 import { NavController } from 'ionic-angular';
 
 @Component({
-  selector: 'page-bolo',
-  templateUrl: 'bolo.html'
+  selector: 'page-lanche',
+  templateUrl: 'lanche.html'
 })
-export class BoloPage {
+export class LanchePage {
 
   constructor(public navCtrl: NavController) {
-
+  
   }
 
   public sanduiches = [
