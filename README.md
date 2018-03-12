@@ -2,7 +2,7 @@
 
 ## Getting Started
 Entre na pasta
-Rode o comando: npm init
+Rode o comando: npm install
 Logo depois: ionic serve
 
 ### Prerequisites
