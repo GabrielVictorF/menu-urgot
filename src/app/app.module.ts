@@ -29,7 +29,7 @@ import { SplashScreen } from '@ionic-native/splash-screen';
     PedidosPage,
     LanchePage,
     BebidaPage,
-    TabsPage
+    TabsPage,
   ],
   providers: [
     StatusBar,

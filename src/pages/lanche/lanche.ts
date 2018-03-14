@@ -6,7 +6,6 @@ import { NavController } from 'ionic-angular';
   templateUrl: 'lanche.html'
 })
 export class LanchePage {
-
   constructor(public navCtrl: NavController) {
   
   }

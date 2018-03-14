@@ -11,7 +11,7 @@
       Sanduíches
     </ion-list-header>
     <ion-item *ngFor='let x of sanduiches'>
-      <ion-avatar item-start (tap)="tapEvent(x)">
+      <ion-avatar item-start>
         <img src="../../assets/imgs/{{ x.img }}">
       </ion-avatar>
       <h2>{{x.nome}}</h2>
@@ -29,6 +29,7 @@
       </ion-avatar>
       <h2>{{x.nome}}</h2>
       <p><b>Preço: </b>R$  {{ x.preco }}</p>
+       
     </ion-item>
   </ion-list>
 </ion-content>
