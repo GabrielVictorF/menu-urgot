@@ -1,54 +1,58 @@
 import { Component } from '@angular/core';
 import { NavController } from 'ionic-angular';
+import { Http } from '@angular/http';
+import { AlertController } from 'ionic-angular';
+
+import 'rxjs/add/operator/map';
 
 @Component({
-  selector: 'page-lanche',
-  templateUrl: 'lanche.html'
+	selector: 'page-lanche',
+	templateUrl: 'lanche.html'
 })
+
 export class LanchePage {
-  constructor(public navCtrl: NavController) {
-  
-  }
+	public sanduiches = [];
+	public pasteis = [];
 
-  public sanduiches = [
-  	{
-  		id: 0,
-  		img: "sanduiche-x-salada.jpeg",
-  		nome: "X-salada",
-  		preco: 3
-  	},
-  	{
-  		id: 1,
-  		img: "sanduiche-misto.jpeg",
-  		nome: "Misto",
-  		preco: 3
-  	},
-  	{
-  		id: 2,
-  		img: "sanduiche-hamburguer.jpeg",
-  		nome: "Hambúrguer",
-  		preco: 3
+	constructor(public navCtrl: NavController, private http: Http, private alertCtrl: AlertController) {
+ 
   	}
-  ]
 
-  public pasteis = [
-  	{
-  		id: 0,
-  		img: "pastel-carne.jpeg",
-  		nome: "Carne",
-  		preco: 6
-  	},
-  	{
-  		id: 1,
-  		img: "pastel-frango.jpeg",
-  		nome: "Frango",
-  		preco: 3
-  	},
-  	{
-  		id: 2,
-  		img: "pastel-calabresa.jpeg",
-  		nome: "Calabresa",
-  		preco: 3
+	ionViewWillEnter(){
+		this.obterProdutosAPI();
+  	} 
+
+  	erroAPI(req) {
+  		this.alertCtrl.create({
+			title: 'Falha na conexão',
+			buttons: [{ text: 'Estou ciente' }],
+			subTitle: 'Não foi possível obter a lista de produtos [' + req + ']. Tente mais tarde.'
+		}).present();
   	}
-  ]
+
+	obterProdutosAPI(){
+		this.http.get('http://192.168.0.6:3000/sanduiche') //Dados dos SANDUÍCHES
+	  	.map(response => response.json())
+	  	.toPromise()
+	  	.then(
+	 		response => {
+	   			this.sanduiches = response;
+			},
+
+			err => {
+		  		this.erroAPI('Sanduíches');
+		});
+
+  		this.http.get('http://192.168.0.6:3000/pasteis') //Dados dos PASTEIS
+	 		.map(response => response.json())
+			.toPromise()
+			.then(
+				response => {
+					this.pasteis = response;
+				},
+
+		 		err => {
+		 			this.erroAPI('Pastéis');
+			});
+	}
 }

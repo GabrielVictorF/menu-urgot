@@ -6,6 +6,12 @@
   </ion-navbar>
 </ion-header>
 
-<ion-content padding>
-	<h2>Tela ainda a ser implementada...</h2>
+	<ion-content class="card-background-page">
+
+  <ion-card *ngFor='let x of pedidos'>
+    <img src="../../assets/imgs/{{ x.img }}"/>
+    <div class="card-title">Mesa {{ x.mesa }}</div>
+    <div class="card-subtitle">Pedido: {{ x.nome }}</div>
+  </ion-card>
 </ion-content>
+

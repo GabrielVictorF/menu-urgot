@@ -1,0 +1,108 @@
+{
+	"refrigerantes": [
+	{
+		"id": 1,
+		"img": "bebida-coca-cola.jpg",
+		"nome": "Coca-cola",
+		"preco": 4.50
+	},
+	{
+		"id":  2,
+		"img": "bebida-antarctica.jpg",
+		"nome": "Antártica",
+		"preco": 4.50
+	},
+	{
+		"id": 3,
+		"img": "bebida-ice-cola.jpeg",
+		"nome": "Ice cola",
+		"preco": 4.50
+	}],
+
+	"cha": [
+	{
+		"id": 0,
+		"img": "cha-preto.jpeg",
+		"nome": "Chá Preto",
+		"preco": 23.50
+	},
+	{
+		"id": 1,
+		"img": "cha-hortela.jpeg",
+  		"nome": "Chá de Hortelã",
+  		"preco": 13.50
+	},
+	{
+		"id": 1,
+		"img": "cha-canela.jpeg",
+		"nome": "Chá de Canela",
+		"preco": 6.80
+	}],
+
+	"sanduiche": [
+	{
+		"id": 4,
+		"img": "sanduiche-x-salada.jpeg",
+		"nome": "X-salada",
+		"preco": 3
+	},
+	{
+		"id": 5,
+		"img": "sanduiche-misto.jpeg",
+		"nome": "Misto",
+		"preco": 3
+	},
+	{
+		"id": 6,
+		"img": "sanduiche-hamburguer.jpeg",
+		"nome": "Hambúrguer",
+		"preco": 3
+	}],
+
+	"pasteis": [
+	{
+		"id": 7,
+		"img": "pastel-carne.jpeg",
+		"nome": "Carne",
+		"preco": 6
+	},
+	{
+		"id": 8,
+		"img": "pastel-frango.jpeg",
+		"nome": "Frango",
+		"preco": 3
+	},
+	{
+		"id": 9,
+		"img": "pastel-calabresa.jpeg",
+		"nome": "Calabresa",
+		"preco": 3
+	}],
+
+	"pedidos": [
+		{
+			"id": 9,
+			"img": "1.png",
+			"nome": "Calabresa",
+			"preco": 3,
+			"mesa": 12,
+			"qtd": 3
+		},
+		{
+		"id": 6,
+		"img": "2.png",
+		"nome": "Hambúrguer",
+		"preco": 3,
+		"mesa": 1,
+		"qtd": 3
+	},
+	{
+		"id":  2,
+		"img": "3.png",
+		"nome": "Antártica",
+		"preco": 4.50,
+		"mesa": 15,
+		"qtd": 7
+	}
+	]
+}
