@@ -13,9 +13,14 @@ import 'rxjs/add/operator/map';
 export class LanchePage {
 	public sanduiches = [];
 	public pasteis = [];
+	public carrinho = 
+	{
+		produto: [],
+		qtd: []
+	}
 
 	constructor(public navCtrl: NavController, private http: Http, private alertCtrl: AlertController) {
- 
+ 		
   	}
 
 	ionViewWillEnter(){
@@ -28,6 +33,13 @@ export class LanchePage {
 			buttons: [{ text: 'Estou ciente' }],
 			subTitle: 'Não foi possível obter a lista de produtos [' + req + ']. Tente mais tarde.'
 		}).present();
+  	}
+
+  	addCarrinho(x) {
+  		//parseInt(this.carrinho.qtd);
+  		this.carrinho.produto.push(x.nome);
+  		this.carrinho.qtd.push(2);
+  		console.log(this.carrinho);
   	}
 
 	obterProdutosAPI(){
