@@ -11,7 +11,7 @@
   <ion-card *ngFor='let x of pedidos'>
     <img src="../../assets/imgs/{{ x.img }}"/>
     <div class="card-title">Mesa {{ x.mesa }}</div>
-    <div class="card-subtitle">Pedido: {{ x.nome }}</div>
+    <div class="card-subtitle"><b>Pedido:</b> <span *ngFor='let i of x.pedido'>{{ i.produto }} | </span></div>
   </ion-card>
 </ion-content>
 

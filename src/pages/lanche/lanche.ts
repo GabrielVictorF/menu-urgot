@@ -31,7 +31,7 @@ export class LanchePage {
   	}
 
 	obterProdutosAPI(){
-		this.http.get('http://192.168.0.6:3000/sanduiche') //Dados dos SANDUÍCHES
+		this.http.get('http://192.168.0.7:3000/sanduiche') //Dados dos SANDUÍCHES
 	  	.map(response => response.json())
 	  	.toPromise()
 	  	.then(
@@ -43,7 +43,7 @@ export class LanchePage {
 		  		this.erroAPI('Sanduíches');
 		});
 
-  		this.http.get('http://192.168.0.6:3000/pasteis') //Dados dos PASTEIS
+  		this.http.get('http://192.168.0.7:3000/pasteis') //Dados dos PASTEIS
 	 		.map(response => response.json())
 			.toPromise()
 			.then(

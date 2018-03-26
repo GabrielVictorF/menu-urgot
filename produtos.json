@@ -83,26 +83,19 @@
 		{
 			"id": 9,
 			"img": "1.png",
-			"nome": "Calabresa",
+			"pedido": [
+				{
+					"produto": "Antártica",
+					"qtd": 2
+				},
+				{
+					"produto": "Hambúrguer",
+					"qtd": 22
+				}
+			],
 			"preco": 3,
 			"mesa": 12,
 			"qtd": 3
-		},
-		{
-		"id": 6,
-		"img": "2.png",
-		"nome": "Hambúrguer",
-		"preco": 3,
-		"mesa": 1,
-		"qtd": 3
-	},
-	{
-		"id":  2,
-		"img": "3.png",
-		"nome": "Antártica",
-		"preco": 4.50,
-		"mesa": 15,
-		"qtd": 7
-	}
+		}
 	]
 }

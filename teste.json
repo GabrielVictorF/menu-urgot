@@ -1,13 +1,27 @@
 {
-	"refrigerantes" : [
+	"pedidos": [
+	{
+		"id": 2,
+		"pedido": [
 		{
-			"nome": "gabriel"
-		}
-	],
-
-	"cha":[
+			"produto": "q",
+			"qtd": 12
+		},
 		{
-			"nome": "kkkk"
-		}
-	]
+			"produto": "eoq",
+			"qtd": 2
+		}]
+	},
+	{
+		"id": 3,
+		"pedido": [
+		{
+			"produto": "ara",
+			"qtd" : 2
+		},
+		{
+			"produto": "uahsausa",
+			"qtd": 22
+		}]
+	}]
 }
