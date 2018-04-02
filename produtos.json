@@ -17,6 +17,12 @@
       "img": "bebida-ice-cola.jpeg",
       "nome": "Ice cola",
       "preco": 4.5
+    },
+    {
+      "id": 4,
+      "img": "bebida-guarana-jesus.jpeg",
+      "nome": "Guaraná Jesus",
+      "preco": 2
     }
   ],
   "cha": [
