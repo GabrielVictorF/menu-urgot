@@ -30,7 +30,7 @@ export class PedidosPage {
   	}
 
   	obterPedidosAPI() {
-  		this.http.get('http://192.168.0.7:3000/pedidos') //Dados dos PASTEIS
+  		this.http.get('https://my-json-server.typicode.com/gabrielprogammer/api-fake/pedidos') //Dados dos PASTEIS
 	 		.map(response => response.json())
 			.toPromise()
 			.then(
