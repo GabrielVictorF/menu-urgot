@@ -2,7 +2,7 @@ import { Component } from '@angular/core';
 import { NavController } from 'ionic-angular';
 import { Http } from '@angular/http';
 import { AlertController, ToastController } from 'ionic-angular';
-
+import { CarrinhoPage } from '../carrinho/carrinho';
 import 'rxjs/add/operator/map';
 
 @Component({
@@ -13,11 +13,7 @@ import 'rxjs/add/operator/map';
 export class LanchePage {
 	public sanduiches = [];
 	public pasteis = [];
-	public carrinho = 
-	{
-		produto: [],
-		qtd: []
-	}
+	public carrinho = new Array<any>();
 
 	constructor(public navCtrl: NavController, private http: Http, private alertCtrl: AlertController, 
 		public toastCtrl: ToastController) {
@@ -67,13 +63,19 @@ export class LanchePage {
           text: 'Adicionar',
           handler: data => {
             console.log('Saved clicked');
+            this.carrinho.push(x);
            	this.showToast('top',  x.nome + ' foi inserido no carrinho!');
+           	console.log(this.carrinho);
           }
         }
       ]
     });
     prompt.present();
   }
+
+  	carrinhoPage() {
+  		this.navCtrl.push(CarrinhoPage, { Carrinho: this.carrinho});
+  	}
 
 	obterProdutosAPI(){
 		this.http.get('https://my-json-server.typicode.com/gabrielprogammer/api-fake/sanduiche') //Dados dos SANDUÍCHES
