@@ -14,9 +14,15 @@
 
 
 <ion-content padding>
+	<img src="../../assets/imgs/ops.png">
 	<ion-list>
 		<ion-item  *ngFor='let x of carrinho'>
-			<h3> {{ x.nome }} </h3>
+			<ion-thumbnail item-start>
+				<img src="../../assets/imgs/{{x.img}}">
+			</ion-thumbnail>
+			<h2> {{ x.nome }} </h2>
+			<p>{{ x.preco }}</p>
+			<button ion-button clear item-end>Detalhes</button>
 		</ion-item>
 	</ion-list>
 </ion-content>

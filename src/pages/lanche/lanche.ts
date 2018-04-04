@@ -32,11 +32,40 @@ export class LanchePage {
 		}).present();
   	}
 
+  	 showConfirm(title: string, text: string) {
+  	 	if (this.carrinho.length ==  0) {
+  	 		this.showToast('middle', 'Carrinho vazio');
+  	 		return;
+  	 	}
+  	 	else {
+    let confirm = this.alertCtrl.create({
+      title: title,
+      message: text,
+      buttons: [
+        {
+          text: 'Não',
+          handler: () => {
+            console.log('Disagree clicked');
+          }
+        },
+        {
+          text: 'Sim',
+          handler: () => {
+            console.log('Agree clicked');
+            this.showToast('bottom', 'Compra efetuada');
+          }
+        }
+      ]
+    });
+}
+    confirm.present();
+  }
 	showToast(position: string, text: string) {
     	let toast = this.toastCtrl.create({
       message: text,
       duration: 2000,
-      position: position
+      position: position,
+      cssClass: 'toast'
     });
 
     toast.present(toast);
@@ -75,6 +104,10 @@ export class LanchePage {
 
   	carrinhoPage() {
   		this.navCtrl.push(CarrinhoPage, { Carrinho: this.carrinho});
+  	}
+
+  	confirmaCompra() {
+  		this.showConfirm('Confirmar compra', 'Deseja efetuar esta compra?');
   	}
 
 	obterProdutosAPI(){
