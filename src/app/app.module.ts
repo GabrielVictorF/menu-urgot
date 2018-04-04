@@ -7,6 +7,7 @@ import { PedidosPage } from '../pages/pedidos/pedidos';
 import { LanchePage } from '../pages/lanche/lanche';
 import { BebidaPage } from '../pages/bebida/bebida';
 import { TabsPage } from '../pages/tabs/tabs';
+import { SlidePage } from '../pages/slide/slide';
 
 import { StatusBar } from '@ionic-native/status-bar';
 import { SplashScreen } from '@ionic-native/splash-screen';
@@ -19,6 +20,7 @@ import { HttpModule } from '@angular/http';
     LanchePage,
     BebidaPage,
     TabsPage,
+    SlidePage
   ],
   imports: [
     BrowserModule,
@@ -32,6 +34,7 @@ import { HttpModule } from '@angular/http';
     LanchePage,
     BebidaPage,
     TabsPage,
+    SlidePage
   ],
   providers: [
     StatusBar,

@@ -1,7 +1,7 @@
 import { Component } from '@angular/core';
 import { NavController } from 'ionic-angular';
 import { Http } from '@angular/http';
-import { AlertController } from 'ionic-angular';
+import { AlertController, ToastController } from 'ionic-angular';
 
 import 'rxjs/add/operator/map';
 
@@ -19,7 +19,8 @@ export class LanchePage {
 		qtd: []
 	}
 
-	constructor(public navCtrl: NavController, private http: Http, private alertCtrl: AlertController) {
+	constructor(public navCtrl: NavController, private http: Http, private alertCtrl: AlertController, 
+		public toastCtrl: ToastController) {
  		
   	}
 
@@ -35,12 +36,44 @@ export class LanchePage {
 		}).present();
   	}
 
+	showToast(position: string, text: string) {
+    	let toast = this.toastCtrl.create({
+      message: text,
+      duration: 2000,
+      position: position
+    });
+
+    toast.present(toast);
+  }
+
   	addCarrinho(x) {
-  		//parseInt(this.carrinho.qtd);
-  		this.carrinho.produto.push(x.nome);
-  		this.carrinho.qtd.push(2);
-  		console.log(this.carrinho);
-  	}
+  		let prompt = this.alertCtrl.create({
+      title: 'Confirmar compra',
+      message: "Informe a quantidade",
+      inputs: [
+        {
+          name: 'qtd',
+          placeholder: 'Quantidade...'
+        },
+      ],
+      buttons: [
+        {
+          text: 'Cancelar',
+          handler: data => {
+            console.log('Cancel clicked');
+          }
+        },
+        {
+          text: 'Adicionar',
+          handler: data => {
+            console.log('Saved clicked');
+           	this.showToast('top',  x.nome + ' foi inserido no carrinho!');
+          }
+        }
+      ]
+    });
+    prompt.present();
+  }
 
 	obterProdutosAPI(){
 		this.http.get('https://my-json-server.typicode.com/gabrielprogammer/api-fake/sanduiche') //Dados dos SANDUÍCHES
