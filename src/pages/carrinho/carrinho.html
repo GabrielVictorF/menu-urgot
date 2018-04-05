@@ -7,7 +7,7 @@
 <ion-header>
 
   <ion-navbar>
-    <ion-title>carrinho</ion-title>
+    <ion-title>Meu Carrinho</ion-title>
   </ion-navbar>
 
 </ion-header>
@@ -19,11 +19,11 @@
 
 	<ion-list>
 		<ion-item  *ngFor='let x of carrinho'>
-			<ion-thumbnail item-start>
+			<ion-avatar item-start>
 				<img src="../../assets/imgs/{{x.img}}">
-			</ion-thumbnail>
+			</ion-avatar>
 			<h2> {{ x.nome }} </h2>
-			<p>{{ x.preco }}</p>
+			<p><b>Quantidade: </b> {{ x.qtd }}</p>
 			<button ion-button color="danger" item-end outline icon-only class="button-carrinho" (click)="removerItem(x)">
 		      <ion-icon name='trash' is-active="false"></ion-icon>
     		</button>

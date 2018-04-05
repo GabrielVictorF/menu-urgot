@@ -19,6 +19,7 @@ export class PedidosPage {
 
   	ionViewWillEnter(){
 		this.obterPedidosAPI();
+		console.log(this.pedidos);
   	} 
 
 	erroAPI(req) {

@@ -1,7 +1,6 @@
 import { Component } from '@angular/core';
-import { NavController } from 'ionic-angular';
-import { Http } from '@angular/http';
-import { AlertController, ToastController } from 'ionic-angular';
+import { Http, RequestOptions, Headers } from '@angular/http';
+import { AlertController, ToastController, NavController } from 'ionic-angular';
 import { CarrinhoPage } from '../carrinho/carrinho';
 import 'rxjs/add/operator/map';
 
@@ -21,10 +20,10 @@ export class LanchePage {
   	}
 
 	ionViewWillEnter(){
-		this.obterProdutosAPI();
+		this.obterProdutosAPI(); // Assim que entra na page obtem os produtos
   	} 
 
-  	erroAPI(req) {
+  	erroAPI(req) { // Ao ocorrer erro ao obter os dados exibe um ALERT de erro
   		this.alertCtrl.create({
 			title: 'Falha na conexão',
 			buttons: [{ text: 'Estou ciente' }],
@@ -32,69 +31,69 @@ export class LanchePage {
 		}).present();
   	}
 
-  	 showConfirm(title: string, text: string) {
+  	showConfirm(title: string, text: string) {
   	 	if (this.carrinho.length ==  0) {
   	 		this.showToast('middle', 'Carrinho vazio');
   	 		return;
   	 	}
   	 	else {
-    let confirm = this.alertCtrl.create({
-      title: title,
-      message: text,
-      buttons: [
-        {
-          text: 'Não',
-          handler: () => {
-            console.log('Disagree clicked');
-          }
-        },
-        {
-          text: 'Sim',
-          handler: () => {
-            console.log('Agree clicked');
-            this.showToast('bottom', 'Compra efetuada');
-          }
-        }
-      ]
-    });
-}
-    confirm.present();
+    		let confirm = this.alertCtrl.create({
+	      		title: title,
+	      		message: text,
+	      		buttons: [{
+	          		text: 'Não',
+	          		handler: () => {
+	            		console.log('Disagree clicked');
+	          	}
+       			},
+        		{
+          			text: 'Sim',
+         			handler: () => {
+            		this.showToast('bottom', 'Compra efetuada');
+          		}
+        		}]
+    		});
+		}
+    	confirm.present();
   }
-	showToast(position: string, text: string) {
-    	let toast = this.toastCtrl.create({
-      message: text,
-      duration: 2000,
-      position: position,
-      cssClass: 'toast'
-    });
 
+	showToast(position: string, text: string) { // Mostra um TOAST na tela
+    	let toast = this.toastCtrl.create({
+    		message: text,
+      		duration: 2000,
+      		position: position,
+      		cssClass: 'toast'
+    	});
     toast.present(toast);
   }
 
-  	addCarrinho(x) {
+  	addCarrinho(x) { // Adiciona um item ao carrinho e exibe um TOAST de confirmação
   		let prompt = this.alertCtrl.create({
-      title: 'Confirmar compra',
-      message: "Informe a quantidade",
-      inputs: [
+    	title: 'Confirmar compra',
+      	message: "Informe a quantidade",
+      	inputs: [
         {
-          name: 'qtd',
-          placeholder: 'Quantidade...'
+          	name: 'qtd',
+          	type: 'number',
+          	placeholder: 'Quantidade...'
         },
       ],
       buttons: [
         {
-          text: 'Cancelar',
-          handler: data => {
-            console.log('Cancel clicked');
-          }
+          	text: 'Cancelar',
         },
         {
-          text: 'Adicionar',
-          handler: data => {
-            console.log('Saved clicked');
-            this.carrinho.push(x);
-           	this.showToast('top',  x.nome + ' foi inserido no carrinho!');
-           	console.log(this.carrinho);
+          	text: 'Adicionar',
+          	handler: data => {
+          		if (data.qtd != 0) {
+          			x.qtd = data.qtd;
+            		this.carrinho.push(x);
+           			this.showToast('top',  x.nome + ' foi inserido no carrinho!');
+           			console.log(this.carrinho);
+          	} else {
+          			this.showToast('middle', 'Quantidade Inválida.');
+          			this.addCarrinho(x);
+          	}
           }
         }
       ]
@@ -102,15 +101,28 @@ export class LanchePage {
     prompt.present();
   }
 
-  	carrinhoPage() {
+  	carrinhoPage() { // Abre CarrinhoPage com a array carrinho como parametro
   		this.navCtrl.push(CarrinhoPage, { Carrinho: this.carrinho});
   	}
 
-  	confirmaCompra() {
+  	confirmaCompra() { // Exibe um ALERT de confirmação do efetuamento do pedido
   		this.showConfirm('Confirmar compra', 'Deseja efetuar esta compra?');
-  	}
+  		let body = JSON.stringify(this.carrinho);
+    	let headers = new Headers({'Content-Type': 'application/json'});
+    	let options = new RequestOptions({ headers: headers });
 
-	obterProdutosAPI(){
+    	this.http.post('https://my-json-server.typicode.com/gabrielprogammer/api-fake/pedidos', body, options)
+        .map(res => res.json())
+        .toPromise()
+        .then(response => {
+        					console.log('Compra efetuada');
+                            console.log(response);
+                          }
+        );
+      
+  }
+
+	obterProdutosAPI(){ // Obtém os produtos da API do GITHUB
 		this.http.get('https://my-json-server.typicode.com/gabrielprogammer/api-fake/sanduiche') //Dados dos SANDUÍCHES
 	  	.map(response => response.json())
 	  	.toPromise()
