@@ -1,5 +1,6 @@
 import { Component } from '@angular/core';
 import { IonicPage, NavController, NavParams } from 'ionic-angular';
+import { LanchePage } from '../lanche/lanche';
 
 /**
  * Generated class for the CarrinhoPage page.
@@ -19,9 +20,20 @@ export class CarrinhoPage {
   }
 
   private carrinho = this.navParams.get('Carrinho');
+  private carrinho_vazio : boolean;
+
   ionViewDidLoad() {
     console.log('ionViewDidLoad CarrinhoPage');
-
+   	if(this.carrinho != '') {
+   		this.carrinho_vazio = false;
+   		console.log(this.carrinho_vazio);
+   	} else {
+   		this.carrinho_vazio = true;
+   		console.log(this.carrinho_vazio);
+   	}
   }
 
+  private abrirHome() {
+  	this.navCtrl.push(LanchePage);
+  }
 }
