@@ -1,0 +1,48 @@
+<!--
+  Generated template for the CadastrapedidoPage page.
+
+  See http://ionicframework.com/docs/components/#navigation for more info on
+  Ionic pages and navigation.
+-->
+<ion-header>
+
+  <ion-navbar>
+    <ion-title>Cadastrar_pedido</ion-title>
+  </ion-navbar>
+
+</ion-header>
+
+
+<ion-content padding>
+  <form (ngSubmit)="cadastrarpedido()">
+    <ion-item>
+        <ion-label color="primary">Bebida: </ion-label>
+        <ion-input placeholder="Informe sua Bebida ... " 
+          [(ngModel)]="pedidos.bebida"
+          name = "bebida">
+        </ion-input>
+    </ion-item>
+    <ion-item>
+        <ion-label color="primary">Bebida_Quantidade: </ion-label>
+        <ion-input placeholder="Informe a Quantidade de suas bebidas ... " [(ngModel)]="pedidos.bebida_quantidade"
+          name = "bebida_quantidade">
+        </ion-input>
+    </ion-item>
+    <ion-item>
+        <ion-label color="primary">Lanche: </ion-label>
+        <ion-input placeholder="Informe o seu Lanche ... " [(ngModel)]="pedidos.lanche"
+          name = "Lanche">
+        </ion-input>
+    </ion-item>
+    <ion-item>
+     <ion-label color="primary">Lanche_Quantidade: </ion-label>
+        <ion-input placeholder="Informe sua Quantidade de lanche ... " 
+          [(ngModel)]="pedidos.lanche_quantidade"
+          name = "lanche_quantidade">
+        </ion-input>
+    </ion-item>
+    <button ion-button type="submit" color="secondary">Cadastrar</button>
+  </form>
+
+</ion-content>
+

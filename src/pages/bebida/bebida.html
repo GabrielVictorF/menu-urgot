@@ -17,6 +17,10 @@
       </ion-avatar>
       <h2>{{x.nome}}</h2>
       <p><b>Preço: </b>R$ {{ x.preco }}</p>
+       <button ion-button icon-right (click)="AddCarrinho(x)">
+  Adicionar Pedido
+  <ion-icon name="add"></ion-icon>
+</button>
     </ion-item>
   </ion-list>
 
@@ -30,6 +34,10 @@
       </ion-avatar>
       <h2>{{x.nome}}</h2>
       <p><b>Preço: </b>R$  {{ x.preco }}</p>
+     <button ion-button icon-right (click)="AddCarrinho(x)">
+  Adicionar Pedido
+<ion-icon name="add"></ion-icon>
+</button>
     </ion-item>
   </ion-list>
 
@@ -43,6 +51,20 @@
       </ion-avatar>
       <h2>{{x.nome}}</h2>
       <p><b>Preço: </b>R$  {{ x.preco }}</p>
+     <button ion-button icon-right (click)="AddCarrinho(x)">
+  Adicionar Pedido
+    <ion-icon name="add"></ion-icon>
+</button>
     </ion-item>
   </ion-list>
+
+   <ion-fab right bottom>
+    <button ion-fab color="blue"><ion-icon name="more"></ion-icon></button>
+    <ion-fab-list side="left">
+    <button ion-fab (click)="carrinhoPage()"><ion-icon name="cart"></ion-icon></button>
+    <button ion-fab (click)="confirmaCompra()"><ion-icon name="checkmark"></ion-icon></button>
+  </ion-fab-list>
+  </ion-fab>
+
+  
 </ion-content>

@@ -1,8 +1,10 @@
 import { Component } from '@angular/core';
 import { NavController} from 'ionic-angular';
 import { Http } from '@angular/http';
-import { AlertController } from 'ionic-angular';
- 
+import { AlertController, LoadingController } from 'ionic-angular';
+import { LanchePage } from '../lanche/lanche';
+import {PedidoPage} from '../pedido/pedido';
+import {CadastrapedidoPage} from '../cadastrapedido/cadastrapedido'; 
 import 'rxjs/add/operator/map';
 
 @Component({
@@ -13,14 +15,60 @@ import 'rxjs/add/operator/map';
 export class PedidosPage {
 	pedidos = [];
 
-	constructor(public navCtrl: NavController, private http: Http, public alertCtrl: AlertController) {
+load;
+	
+	constructor(public navCtrl: NavController, private http: Http, public alertCtrl: AlertController, private loader : LoadingController) {
   	
+  	//this.load = this.loader.create({
+      //content: "Buscando pedidos. Aguarde ...",
+  	//});
+
+  	//this.load.present();
+
   	}
 
   	ionViewWillEnter(){
 		this.obterPedidosAPI();
+<<<<<<< HEAD
 		console.log(this.pedidos);
+=======
+  	}
+  	selecionapedidos(x) {
+    console.log(x);
+    this.navCtrl.push(PedidoPage, { pedidoSelecionado : x } );
+  }
+  	adicionarpedido(){
+  	console.log('Adicionando pedido ...');
+    this.navCtrl.push(CadastrapedidoPage);
+>>>>>>> 903e0d0d209e1c322a4d35816844d8d0b6185241
   	} 
+  	 obterpedidosAPI() {
+    this.http.get('http://localhost:3000/pedidos')
+        .map(response => response.json())
+        .toPromise()
+        .then(
+                response => 
+                {
+                  this.pedidos = response;
+                  console.log(response);
+                  console.log(this.pedidos);
+                  this.load.dismiss();
+                },
+              
+                err => {
+                  this.load.dismiss(); 
+                  this.alertCtrl.create({
+                      title: 'Falha na conexão!',
+                      buttons: [{ text: 'Estou ciente' }],
+                      subTitle: 'Não foi possível obter a lista de pedidos. Tente mais tarde.' 
+                  }).present();
+          
+                });
+  }
+
+  	 AdicionarPedido(){
+    this.navCtrl.push(LanchePage);
+  }
 
 	erroAPI(req) {
   		this.alertCtrl.create({

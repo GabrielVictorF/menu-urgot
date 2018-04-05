@@ -1,6 +1,7 @@
 import { Component } from '@angular/core';
 import { IonicPage, NavController, NavParams } from 'ionic-angular';
 import { LanchePage } from '../lanche/lanche';
+import {BebidaPage} from '../bebida/bebida';
 
 /**
  * Generated class for the CarrinhoPage page.
@@ -18,7 +19,7 @@ export class CarrinhoPage {
 
   constructor(public navCtrl: NavController, public navParams: NavParams) {
   }
-
+  
   private carrinho = this.navParams.get('Carrinho');
   private carrinho_vazio : boolean;
 
@@ -42,3 +43,11 @@ export class CarrinhoPage {
   	this.carrinho.splice(index, 1);
   }
 }
+
+//  private carrinho = this.navParams.get('Carrinho');
+  //ionViewDidLoad() {
+    //console.log('ionViewDidLoad CarrinhoPage');
+
+  //}
+
+//}

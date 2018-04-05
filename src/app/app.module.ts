@@ -7,8 +7,10 @@ import { PedidosPage } from '../pages/pedidos/pedidos';
 import { LanchePage } from '../pages/lanche/lanche';
 import { BebidaPage } from '../pages/bebida/bebida';
 import { TabsPage } from '../pages/tabs/tabs';
-import { SlidePage } from '../pages/slide/slide';
-import { CarrinhoPage } from '../pages/carrinho/carrinho';
+import {CadastrapedidoPage} from '../pages/cadastrapedido/cadastrapedido';
+import{PedidoPage} from '../pages/pedido/pedido';
+import {CarrinhoPage} from '../pages/carrinho/carrinho';
+import {SlidePage} from '../pages/slide/slide';
 
 import { StatusBar } from '@ionic-native/status-bar';
 import { SplashScreen } from '@ionic-native/splash-screen';
@@ -21,8 +23,10 @@ import { HttpModule } from '@angular/http';
     LanchePage,
     BebidaPage,
     TabsPage,
-    SlidePage,
-    CarrinhoPage
+CadastrapedidoPage,
+PedidoPage,
+CarrinhoPage,
+SlidePage    
   ],
   imports: [
     BrowserModule,
@@ -36,6 +40,8 @@ import { HttpModule } from '@angular/http';
     LanchePage,
     BebidaPage,
     TabsPage,
+    CadastrapedidoPage,
+    PedidoPage,
     SlidePage,
     CarrinhoPage
   ],

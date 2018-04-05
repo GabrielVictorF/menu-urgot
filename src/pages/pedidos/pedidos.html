@@ -15,5 +15,11 @@
     	<b>Pedido:</b> <span *ngFor='let i of x.pedido'>{{ i.produto }}, {{i.qtd }}X | </span>
     </div>
   </ion-card>
+ <ion-list>
+    <ion-item *ngFor="let x of pedidos" (click)="selecionapedidos(x)">
+      {{x.bebida}} {{x.lanche}}
+    </ion-item>
+  </ion-list>
+  <button ion-button color="secondary" (click)="adicionarpedido()">Novo_pedido</button>
 </ion-content>
 

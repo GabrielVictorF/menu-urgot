@@ -1,12 +1,18 @@
+
 import { Component } from '@angular/core';
 import { NavController } from 'ionic-angular';
+import { Http } from '@angular/http';
+import { AlertController, ToastController } from 'ionic-angular';
+import {PedidosPage} from '../pedidos/pedidos';
+import{CarrinhoPage} from '../carrinho/carrinho';
+import 'rxjs/add/operator/map';
 
 @Component({
   selector: 'page-bebida',
   templateUrl: 'bebida.html'
 })
 export class BebidaPage {
-  constructor(public navCtrl: NavController) {
+  constructor(public navCtrl: NavController, private http: Http, private alertCtrl: AlertController, public toastCtrl : ToastController) {
 
   }
 
@@ -72,4 +78,15 @@ export class BebidaPage {
   		preco: 23.50
   	}
   ]
+
+
+  
+
+//    Addpedido(x) {
+      //parseInt(this.carrinho.qtd);
+//      this.carrinho.produto.push(x.nome);
+  //    this.carrinho.qtd.push(2);
+    //  console.log(this.carrinho);
+  //  }
+
 }
