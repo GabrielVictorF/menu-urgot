@@ -2,7 +2,8 @@ import { Component } from '@angular/core';
 import { NavController } from 'ionic-angular';
 import { Http } from '@angular/http';
 import { AlertController, ToastController } from 'ionic-angular';
-import { CarrinhoPage } from '../carrinho/carrinho';
+import {PedidosPage} from '../pedidos/pedidos';
+import{CarrinhoPage} from '../carrinho/carrinho';
 import 'rxjs/add/operator/map';
 
 @Component({
@@ -14,9 +15,12 @@ export class LanchePage {
 	public sanduiches = [];
 	public pasteis = [];
 	public carrinho = new Array<any>();
+	//{
+	//	produto: [],
+//		qtd: []
+//	}
 
-	constructor(public navCtrl: NavController, private http: Http, private alertCtrl: AlertController, 
-		public toastCtrl: ToastController) {
+	constructor(public navCtrl: NavController, private http: Http, private alertCtrl: AlertController, public toastCtrl : ToastController) {
  		
   	}
 
@@ -31,13 +35,12 @@ export class LanchePage {
 			subTitle: 'Não foi possível obter a lista de produtos [' + req + ']. Tente mais tarde.'
 		}).present();
   	}
-
-  	 showConfirm(title: string, text: string) {
-  	 	if (this.carrinho.length ==  0) {
-  	 		this.showToast('middle', 'Carrinho vazio');
-  	 		return;
-  	 	}
-  	 	else {
+ showConfirm(title: string, text: string) {
+      if (this.carrinho.length ==  0) {
+        this.showToast('middle', 'Carrinho vazio');
+        return;
+      }
+      else {
     let confirm = this.alertCtrl.create({
       title: title,
       message: text,
@@ -58,21 +61,25 @@ export class LanchePage {
       ]
     });
 }
-    confirm.present();
+   // confirm.present();
   }
-	showToast(position: string, text: string) {
+  	showToast(position: string, text: string) {
     	let toast = this.toastCtrl.create({
       message: text,
       duration: 2000,
-      position: position,
-      cssClass: 'toast'
+      position: position
     });
 
     toast.present(toast);
   }
 
   	addCarrinho(x) {
-  		let prompt = this.alertCtrl.create({
+  		//parseInt(this.carrinho.qtd);
+  		//this.carrinho.produto.push(x.nome);
+  		//this.carrinho.qtd.push(2);
+  		//console.log(this.carrinho);
+  	//}
+  	let prompt = this.alertCtrl.create({
       title: 'Confirmar compra',
       message: "Informe a quantidade",
       inputs: [
@@ -106,10 +113,14 @@ export class LanchePage {
   		this.navCtrl.push(CarrinhoPage, { Carrinho: this.carrinho});
   	}
 
-  	confirmaCompra() {
-  		this.showConfirm('Confirmar compra', 'Deseja efetuar esta compra?');
-  	}
+      confirmaCompra() {
+      this.showConfirm('Confirmar compra', 'Deseja efetuar esta compra?');
+    }
 
+    
+	 //AdicionaPedido(){
+  //  this.navCtrl.push(PedidosPage);
+//  }
 	obterProdutosAPI(){
 		this.http.get('https://my-json-server.typicode.com/gabrielprogammer/api-fake/sanduiche') //Dados dos SANDUÍCHES
 	  	.map(response => response.json())
