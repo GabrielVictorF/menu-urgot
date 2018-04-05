@@ -29,18 +29,16 @@ load;
 
   	ionViewWillEnter(){
 		this.obterPedidosAPI();
-<<<<<<< HEAD
 		console.log(this.pedidos);
-=======
   	}
+
   	selecionapedidos(x) {
     console.log(x);
     this.navCtrl.push(PedidoPage, { pedidoSelecionado : x } );
   }
   	adicionarpedido(){
   	console.log('Adicionando pedido ...');
-    this.navCtrl.push(CadastrapedidoPage);
->>>>>>> 903e0d0d209e1c322a4d35816844d8d0b6185241
+    this.navCtrl.push(CadastrapedidoPage);S
   	} 
   	 obterpedidosAPI() {
     this.http.get('http://localhost:3000/pedidos')
@@ -79,7 +77,7 @@ load;
   	}
 
   	obterPedidosAPI() {
-  		this.http.get('https://my-json-server.typicode.com/gabrielprogammer/api-fake/pedidos') //Dados dos PEDIDOS
+  		this.http.get('http://localhost:3000/pedidos') //Dados dos PEDIDOS
 	 		.map(response => response.json())
 			.toPromise()
 			.then(

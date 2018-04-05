@@ -1,25 +1,40 @@
 {
   "pedidos": [
     {
-      "id": 1,
-      "bebida": "coca-cola",
-      "bebida_quantidade": 1,
-      "lanche": "x-salada",
-      "lanche_quantidade": 1
+      "id": "",
+      "pedido": []
     },
-    {
-      "bebida": "Coca-cola",
-      "bebida_quantidade": "1x",
-      "lanche": "Pastel",
-      "lanche_quantidade": "2x",
-      "id": 2
-    },
-    {
-      "bebida": "Antartica",
-      "bebida_quantidade": "2",
-      "lanche": "pastel de frango",
-      "lanche_quantidade": "1",
-      "id": 3
-    }
+    [
+      {
+        "id": 4,
+        "img": "sanduiche-x-salada.jpeg",
+        "nome": "X-salada",
+        "preco": 3,
+        "qtd": "12"
+      }
+    ],
+    [
+      {
+        "id": 4,
+        "img": "sanduiche-x-salada.jpeg",
+        "nome": "X-salada",
+        "preco": 3,
+        "qtd": "12"
+      },
+      {
+        "id": 5,
+        "img": "sanduiche-misto.jpeg",
+        "nome": "Misto",
+        "preco": 3,
+        "qtd": "23"
+      },
+      {
+        "id": 8,
+        "img": "sanduiche-frango-com-salada.png",
+        "nome": "Frango com salada",
+        "preco": 12,
+        "qtd": "23"
+      }
+    ]
   ]
 }

@@ -15,8 +15,6 @@
 <ion-content>
   <img *ngIf="carrinho_vazio" src="../../assets/imgs/ops.png">
   <button ion-button full *ngIf="carrinho_vazio" (click) = "abrirHome()">Lets bora as compras</button>
-
-<<<<<<< HEAD
 	<ion-list>
 		<ion-item  *ngFor='let x of carrinho'>
 			<ion-avatar item-start>
@@ -32,23 +30,6 @@
     		</button>
 		</ion-item>
 	</ion-list>
-=======
-  <ion-list>
-    <ion-item  *ngFor='let x of carrinho'>
-      <ion-thumbnail item-start>
-        <img src="../../assets/imgs/{{x.img}}">
-      </ion-thumbnail>
-      <h2> {{ x.nome }} </h2>
-      <p>{{ x.preco }}</p>
-      <button ion-button color="danger" item-end outline icon-only class="button-carrinho" (click)="removerItem(x)">
-          <ion-icon name='trash' is-active="false"></ion-icon>
-        </button>
-        <button ion-button color="blue" item-end outline icon-only class="button-carrinho">
-          <ion-icon name='create' is-active="false"></ion-icon>
-        </button>
-    </ion-item>
-  </ion-list>
->>>>>>> 903e0d0d209e1c322a4d35816844d8d0b6185241
 </ion-content>
 
 
