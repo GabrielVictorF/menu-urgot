@@ -36,4 +36,9 @@ export class CarrinhoPage {
   private abrirHome() {
   	this.navCtrl.push(LanchePage);
   }
+
+  removerItem(x) {
+  	const index = this.carrinho.indexOf(x);
+  	this.carrinho.splice(index, 1);
+  }
 }

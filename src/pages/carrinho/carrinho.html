@@ -13,10 +13,10 @@
 </ion-header>
 
 
-<ion-content padding>
+<ion-content>
 	<img *ngIf="carrinho_vazio" src="../../assets/imgs/ops.png">
 	<button ion-button full *ngIf="carrinho_vazio" (click) = "abrirHome()">Lets bora as compras</button>
-	
+
 	<ion-list>
 		<ion-item  *ngFor='let x of carrinho'>
 			<ion-thumbnail item-start>
@@ -24,7 +24,12 @@
 			</ion-thumbnail>
 			<h2> {{ x.nome }} </h2>
 			<p>{{ x.preco }}</p>
-			<button ion-button clear item-end>Detalhes</button>
+			<button ion-button color="danger" item-end outline icon-only class="button-carrinho" (click)="removerItem(x)">
+		      <ion-icon name='trash' is-active="false"></ion-icon>
+    		</button>
+    		<button ion-button color="blue" item-end outline icon-only class="button-carrinho">
+		      <ion-icon name='create' is-active="false"></ion-icon>
+    		</button>
 		</ion-item>
 	</ion-list>
 </ion-content>
