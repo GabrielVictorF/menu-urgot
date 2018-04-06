@@ -12,6 +12,7 @@ import{PedidoPage} from '../pages/pedido/pedido';
 import {CarrinhoPage} from '../pages/carrinho/carrinho';
 import {SlidePage} from '../pages/slide/slide';
 import { DetalhePage } from '../pages/detalhe/detalhe';
+import { AdicionarItemPage } from '../pages/adicionar-item/adicionar-item'
 
 import { StatusBar } from '@ionic-native/status-bar';
 import { SplashScreen } from '@ionic-native/splash-screen';
@@ -28,7 +29,8 @@ CadastrapedidoPage,
 PedidoPage,
 CarrinhoPage,
 SlidePage,
-DetalhePage    
+DetalhePage,
+AdicionarItemPage
   ],
   imports: [
     BrowserModule,
@@ -46,7 +48,8 @@ DetalhePage
     PedidoPage,
     SlidePage,
     CarrinhoPage,
-    DetalhePage
+    DetalhePage,
+    AdicionarItemPage
   ],
   providers: [
     StatusBar,

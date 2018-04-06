@@ -7,7 +7,7 @@
 <ion-header>
 
   <ion-navbar>
-    <ion-title>Detalhe [{{ produto.nome }}]</ion-title>
+    <ion-title>Detalhe [{{ produto.nome }}]   <ion-icon name="happy"></ion-icon></ion-title>
   </ion-navbar>
 
 </ion-header>
@@ -19,10 +19,12 @@
   <ion-card-content>
     <ion-card-title>
       {{ produto.categoria }} {{ produto.nome }}
-      </ion-card-title>
+      </ion-card-title>	
     <p>
     <br>
      <b>Preço:</b> {{produto.preco}} R$
+     <br>
+     <b>Disponível em:</b> <span *ngFor='let version of produto.versoes'>{{version}} | </span>
     </p>
   </ion-card-content>
 </ion-card>

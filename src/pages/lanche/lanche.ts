@@ -3,6 +3,7 @@ import { Http, RequestOptions, Headers } from '@angular/http';
 import { AlertController, ToastController, NavController } from 'ionic-angular';
 import { CarrinhoPage } from '../carrinho/carrinho';
 import { DetalhePage } from '../detalhe/detalhe';
+import { AdicionarItemPage } from '../adicionar-item/adicionar-item';
 
 import 'rxjs/add/operator/map';
 
@@ -70,38 +71,8 @@ export class LanchePage {
   }
 
   	addCarrinho(x) { // Adiciona um item ao carrinho e exibe um TOAST de confirmação
-  		let prompt = this.alertCtrl.create({
-    	title: 'Confirmar compra',
-      	message: "Informe a quantidade",
-      	inputs: [
-        {
-          	name: 'qtd',
-          	type: 'number',
-          	placeholder: 'Quantidade...'
-        },
-      ],
-      buttons: [
-        {
-          	text: 'Cancelar',
-        },
-        {
-          	text: 'Adicionar',
-          	handler: data => {
-          		if (data.qtd != 0) {
-          			x.qtd = data.qtd;
-            		this.carrinho.push(x);
-           			this.showToast('top',  x.nome + ' foi inserido no carrinho!');
-           			console.log(this.carrinho);
-          	} else {
-          			this.showToast('middle', 'Quantidade Inválida.');
-          			this.addCarrinho(x);
-          	}
-          }
-        }
-      ]
-    });
-    prompt.present();
-  }
+      this.navCtrl.push(AdicionarItemPage, {Item: x});
+    }
 
   	carrinhoPage() { // Abre CarrinhoPage com a array carrinho como parametro
   		this.navCtrl.push(CarrinhoPage, { Carrinho: this.carrinho});

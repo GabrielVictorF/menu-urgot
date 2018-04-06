@@ -37,6 +37,10 @@
       </ion-avatar>
       <h2>{{x.nome}}</h2>
       <p><b>Preço: </b>R$  {{ x.preco }}</p>
+      <button ion-button icon-right (click)="verDetalheProd(x)">
+  Detalhes
+  <ion-icon name="open"></ion-icon>
+</button>
        <button ion-button icon-right (click)="addCarrinho(x)">
   Adicionar Pedido
   <ion-icon name="add"></ion-icon>
