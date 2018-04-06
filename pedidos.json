@@ -1,40 +1,11 @@
 {
   "pedidos": [
     {
-      "id": "",
-      "pedido": []
+      "id": 1,
+      "pedido": [{"nome": "Gabriel", "qtd": 12}]
     },
-    [
-      {
-        "id": 4,
-        "img": "sanduiche-x-salada.jpeg",
-        "nome": "X-salada",
-        "preco": 3,
-        "qtd": "12"
-      }
-    ],
-    [
-      {
-        "id": 4,
-        "img": "sanduiche-x-salada.jpeg",
-        "nome": "X-salada",
-        "preco": 3,
-        "qtd": "12"
-      },
-      {
-        "id": 5,
-        "img": "sanduiche-misto.jpeg",
-        "nome": "Misto",
-        "preco": 3,
-        "qtd": "23"
-      },
-      {
-        "id": 8,
-        "img": "sanduiche-frango-com-salada.png",
-        "nome": "Frango com salada",
-        "preco": 12,
-        "qtd": "23"
-      }
-    ]
-  ]
+    {
+      "id": 2,
+      "pedido": [{"nome": "Macarrão", "qtd": 4}]
+    }]
 }

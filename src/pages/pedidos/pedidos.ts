@@ -38,7 +38,7 @@ load;
   }
   	adicionarpedido(){
   	console.log('Adicionando pedido ...');
-    this.navCtrl.push(CadastrapedidoPage);S
+    this.navCtrl.push(CadastrapedidoPage);
   	} 
   	 obterpedidosAPI() {
     this.http.get('http://localhost:3000/pedidos')

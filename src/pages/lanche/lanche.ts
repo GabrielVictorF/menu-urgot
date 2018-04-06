@@ -15,6 +15,7 @@ export class LanchePage {
 	public sanduiches = [];
 	public pasteis = [];
 	public carrinho = new Array<any>();
+  public compra;
 
 	constructor(public navCtrl: NavController, private http: Http, private alertCtrl: AlertController, public toastCtrl : ToastController) {
  		
@@ -54,8 +55,8 @@ export class LanchePage {
           		}
         		}]
     		});
+          confirm.present();
 		}
-    	confirm.present();
   }
 
 	showToast(position: string, text: string) { // Mostra um TOAST na tela
@@ -108,10 +109,15 @@ export class LanchePage {
 
   	confirmaCompra() { // Exibe um ALERT de confirmação do efetuamento do pedido
   		this.showConfirm('Confirmar compra', 'Deseja efetuar esta compra?');
+      console.log('DEBUG');
+
+
+      this.compra = this.carrinho;
+      console.log(this.compra);
   		    let body = JSON.stringify(this.carrinho);
   		        let headers = new Headers({'Content-Type': 'application/json'});
     let options = new RequestOptions({ headers: headers });
-  		this.http.post('http://localhost:3000/pedidos', body, options)
+  		this.http.post('http://localhost:3000/pedidos/', body, options)
   		.map(res => res.json())
 	  	.toPromise()
 	  	.then(
