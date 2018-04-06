@@ -13,7 +13,17 @@
 </ion-header>
 
 
-<ion-content padding>
-	<h1>Produto: {{ produto.nome }}</h1>
-	<h3>Preço: {{ produto.preco }}</h3>
+<ion-content>
+	<ion-card>
+  <img src="../../assets/imgs/{{produto.img}}">
+  <ion-card-content>
+    <ion-card-title>
+      {{ produto.categoria }} {{ produto.nome }}
+      </ion-card-title>
+    <p>
+    <br>
+     <b>Preço:</b> {{produto.preco}} R$
+    </p>
+  </ion-card-content>
+</ion-card>
 </ion-content>
