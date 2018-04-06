@@ -2,7 +2,7 @@ import { Component } from '@angular/core';
 import { Http, RequestOptions, Headers } from '@angular/http';
 import { AlertController, ToastController, NavController } from 'ionic-angular';
 import { CarrinhoPage } from '../carrinho/carrinho';
-
+import { DetalhePage } from '../detalhe/detalhe';
 
 import 'rxjs/add/operator/map';
 
@@ -106,6 +106,10 @@ export class LanchePage {
   	carrinhoPage() { // Abre CarrinhoPage com a array carrinho como parametro
   		this.navCtrl.push(CarrinhoPage, { Carrinho: this.carrinho});
   	}
+
+     verDetalheProd(x) {
+      this.navCtrl.push (DetalhePage, {Produto: x});
+    }
 
   	confirmaCompra() { // Exibe um ALERT de confirmação do efetuamento do pedido
   		this.showConfirm('Confirmar compra', 'Deseja efetuar esta compra?');
