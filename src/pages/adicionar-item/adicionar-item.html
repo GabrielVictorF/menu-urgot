@@ -14,9 +14,10 @@
 
 
 <ion-content padding>
-	<ion-item *ngFor='let version of Item.versoes'>
-  <ion-label>{{ version}}</ion-label>
-  <ion-checkbox color="dark" checked="true"></ion-checkbox>
-</ion-item>
+	
+  	<button *ngFor='let version of Item.versoes' ion-button color="light" icon-end (click)="compra(version)">
+      {{ version }}
+      <ion-icon name='arrow-forward'></ion-icon>
+    </button>
 
 </ion-content>
