@@ -17,11 +17,13 @@ import { Http, RequestOptions, Headers } from '@angular/http';
 })
 export class CadastrapedidoPage {
 
-pedidos ={
+pedidos2 ={
+cliente: '',
+mesa :'',
 	bebida:'',
-	bebida_quantidade: '',
+	qtd_bebida: '',
 	lanche:'',
-	lanche_quantidade:''
+	qtd_lanche:''
 };
 
 
@@ -33,16 +35,18 @@ pedidos ={
   }
 
 cadastrarpedido(){
-	console.log("cadastrando pedido: " + this.pedidos.bebida);
-    console.log("cadastrando pedido: " + this.pedidos.bebida_quantidade);
-    console.log("cadastrando pedido: " + this.pedidos.lanche);
-    console.log("cadastrando pedido: " + this.pedidos.lanche_quantidade);
+	console.log("cadastrando pedido: " + this.pedidos2.cliente);
+  console.log("cadastrando pedido: " + this.pedidos2.mesa);
+  console.log("cadastrando pedido: " + this.pedidos2.bebida);
+    console.log("cadastrando pedido: " + this.pedidos2.qtd_bebida);
+    console.log("cadastrando pedido: " + this.pedidos2.lanche);
+    console.log("cadastrando pedido: " + this.pedidos2.qtd_lanche);
 
-let body = JSON.stringify(this.pedidos);
+let body = JSON.stringify(this.pedidos2);
     let headers = new Headers({'Content-Type': 'application/json'});
     let options = new RequestOptions({ headers: headers });
 
-    this.http.post('http://localhost:3000/pedidos', body, options)
+    this.http.post('http://localhost:3000/pedidos2', body, options)
         .map(res => res.json())
         .toPromise()
         .then(response => {

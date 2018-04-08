@@ -44,10 +44,3 @@ export class CarrinhoPage {
   }
 }
 
-//  private carrinho = this.navParams.get('Carrinho');
-  //ionViewDidLoad() {
-    //console.log('ionViewDidLoad CarrinhoPage');
-
-  //}
-
-//}
