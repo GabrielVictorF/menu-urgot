@@ -41,15 +41,15 @@ load;
     this.navCtrl.push(CadastrapedidoPage);
   	} 
   	 obterpedidosAPI() {
-    this.http.get('http://localhost:3000/pedidos')
+    this.http.get('http://localhost:3000/pedidos2')
         .map(response => response.json())
         .toPromise()
         .then(
                 response => 
                 {
-                  this.pedidos = response;
+                  this.pedidos2 = response;
                   console.log(response);
-                  console.log(this.pedidos);
+                  console.log(this.pedidos2);
                   this.load.dismiss();
                 },
               

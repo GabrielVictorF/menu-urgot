@@ -16,29 +16,43 @@
 <ion-content padding>
   <form (ngSubmit)="cadastrarpedido()">
     <ion-item>
+      <ion-label color="primary">Cliente: </ion-label>
+        <ion-input placeholder="Informe o nome do cliente ... " 
+          [(ngModel)]="pedidos2.bebida"
+          name = "cliente">
+        </ion-input>
+    </ion-item>
+    <ion-item>
+    <ion-label color="primary">Mesa: </ion-label>
+        <ion-input placeholder="Informe a Mesa ... " 
+          [(ngModel)]="pedidos2.mesa"
+          name = "mesa">
+        </ion-input>
+    </ion-item>
+        <ion-item>
         <ion-label color="primary">Bebida: </ion-label>
         <ion-input placeholder="Informe sua Bebida ... " 
-          [(ngModel)]="pedidos.bebida"
+          [(ngModel)]="pedidos2.bebida"
           name = "bebida">
         </ion-input>
     </ion-item>
     <ion-item>
-        <ion-label color="primary">Bebida_Quantidade: </ion-label>
-        <ion-input placeholder="Informe a Quantidade de suas bebidas ... " [(ngModel)]="pedidos.bebida_quantidade"
-          name = "bebida_quantidade">
+        <ion-label color="primary">Qtd_bebida: </ion-label>
+        <ion-input placeholder="Informe a Quantidade de suas bebidas ... " [(ngModel)]="pedidos2.qtd_bebida"
+          name = "qtd_bebida">
         </ion-input>
     </ion-item>
     <ion-item>
         <ion-label color="primary">Lanche: </ion-label>
-        <ion-input placeholder="Informe o seu Lanche ... " [(ngModel)]="pedidos.lanche"
+        <ion-input placeholder="Informe o seu Lanche ... " [(ngModel)]="pedidos2.lanche"
           name = "Lanche">
         </ion-input>
     </ion-item>
     <ion-item>
-     <ion-label color="primary">Lanche_Quantidade: </ion-label>
+     <ion-label color="primary"> Qtd_lanche: </ion-label>
         <ion-input placeholder="Informe sua Quantidade de lanche ... " 
-          [(ngModel)]="pedidos.lanche_quantidade"
-          name = "lanche_quantidade">
+          [(ngModel)]="pedidos.qtd_lanche"
+          name = "qtd_lanche">
         </ion-input>
     </ion-item>
     <button ion-button type="submit" color="secondary">Cadastrar</button>
