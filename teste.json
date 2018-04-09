@@ -1,0 +1,27 @@
+{
+	"pedidos": [
+	{
+		"id": 2,
+		"pedido": [
+		{
+			"produto": "q",
+			"qtd": 12
+		},
+		{
+			"produto": "eoq",
+			"qtd": 2
+		}]
+	},
+	{
+		"id": 3,
+		"pedido": [
+		{
+			"produto": "ara",
+			"qtd" : 2
+		},
+		{
+			"produto": "uahsausa",
+			"qtd": 22
+		}]
+	}]
+}
