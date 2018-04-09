@@ -17,7 +17,7 @@ import { Http, RequestOptions, Headers } from '@angular/http';
 })
 export class CadastrapedidoPage {
 
-pedidos2 ={
+pedidos ={
 cliente: '',
 mesa :'',
 	bebida:'',
@@ -35,12 +35,12 @@ mesa :'',
   }
 
 cadastrarpedido(){
-	console.log("cadastrando pedido: " + this.pedidos2.cliente);
-  console.log("cadastrando pedido: " + this.pedidos2.mesa);
-  console.log("cadastrando pedido: " + this.pedidos2.bebida);
-    console.log("cadastrando pedido: " + this.pedidos2.qtd_bebida);
-    console.log("cadastrando pedido: " + this.pedidos2.lanche);
-    console.log("cadastrando pedido: " + this.pedidos2.qtd_lanche);
+	console.log("cadastrando pedido: " + this.pedidos.cliente);
+  console.log("cadastrando pedido: " + this.pedidos.mesa);
+  console.log("cadastrando pedido: " + this.pedidos.bebida);
+    console.log("cadastrando pedido: " + this.pedidos.qtd_bebida);
+    console.log("cadastrando pedido: " + this.pedidos.lanche);
+    console.log("cadastrando pedido: " + this.pedidos.qtd_lanche);
 
 let body = JSON.stringify(this.pedidos2);
     let headers = new Headers({'Content-Type': 'application/json'});

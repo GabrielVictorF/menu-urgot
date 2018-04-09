@@ -2,7 +2,6 @@
   "pedidos": [
     {
       "id": 1,
-<<<<<<< HEAD
       "pedido": [
         {
           "nome": "Gabriel",
@@ -21,12 +20,4 @@
     },
     []
   ]
-=======
-      "pedido": [{"nome": "Gabriel", "qtd": 12}]
-    },
-    {
-      "id": 2,
-      "pedido": [{"nome": "Macarrão", "qtd": 4}]
-    }]
->>>>>>> 23800beca7c72d2b759a78e476bf9477cd102bfb
 }

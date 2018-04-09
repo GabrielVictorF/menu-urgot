@@ -1,6 +1,5 @@
-<<<<<<< HEAD
 {
-  "pedidos2": [
+  "pedidos": [
     {
       "id": 1,
       "pedido": [
@@ -29,36 +28,4 @@
     },
     []
   ]
-=======
-{
-  "pedidos2": [
-    {
-      "id": 1,
-      "pedido": [
-        {
-          "Cliente": "Gabriel",
-          "mesa": 1,
-          "bebida" : "Coca-cola",
-          "qtd_bebida": 2,
-          "lanche": "x-salada",
-          "qtd_lanche": 3
-        }
-      ]
-    },
-    {
-      "id": 2,
-      "pedido": [
-        {
-          "Cliente": "Rhuan",
-          "mesa": 2,
-          "bebida" : "pepsi",
-          "qtd_bebida": 2,
-          "lanche": "x-bacon",
-          "qtd_lanche": 3
-        }
-      ]
-    },
-    []
-  ]
->>>>>>> 23800beca7c72d2b759a78e476bf9477cd102bfb
 }

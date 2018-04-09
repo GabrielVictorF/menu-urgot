@@ -1,0 +1,22 @@
+<ion-header>
+  <ion-navbar>
+    <ion-title>
+      Pedidos
+    </ion-title>
+  </ion-navbar>
+</ion-header>
+
+	<ion-content>
+
+    <ion-list>
+      <ion-item *ngFor='let x of pedidos'><span *ngFor='let y of pedidos'>Cliente: {{x.pedido[y].Cliente}}| Mesa:{{x.pedido[y].mesa}}</span></ion-item>
+    </ion-list> 
+
+ <!--<ion-list>
+    <ion-item *ngFor="let x of pedidos" (click)="selecionapedidos(x)">
+      {{x.bebida}} {{x.lanche}}
+    </ion-item>
+  </ion-list> -->
+  <button ion-button color="secondary" (click)="adicionarpedido()">Novo_pedido</button>
+</ion-content>
+
