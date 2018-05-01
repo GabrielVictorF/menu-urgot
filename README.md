@@ -1,5 +1,5 @@
 # Menu Urgot
-(https://github.com/GabrielProgammer/menu-urgot/blob/master/src/assets/imgs/logo.png)
+![Menu Urgot](https://github.com/GabrielProgammer/menu-urgot/blob/master/src/assets/imgs/logo.png)
 
 ## Getting Started
 * Entre na pasta da aplicação
