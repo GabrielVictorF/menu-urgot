@@ -1,92 +1,52 @@
-
+//Componentes
 import { Component } from '@angular/core';
 import { NavController } from 'ionic-angular';
-import { Http } from '@angular/http';
-import { AlertController, ToastController } from 'ionic-angular';
-import {PedidosPage} from '../pedidos/pedidos';
-import{CarrinhoPage} from '../carrinho/carrinho';
-import 'rxjs/add/operator/map';
+
+//Pages
+import { PedidosPage } from '../pedidos/pedidos';
+import { CarrinhoPage } from '../carrinho/carrinho';
+import { DetalhePage } from '../detalhe/detalhe';
+import { AdicionarItemPage } from '../adicionar-item/adicionar-item';
+
+//Providers
+import { ApiProvider } from '../../providers/api/api';
+import { FuncoesProvider } from '../../providers/funcoes/funcoes';
 
 @Component({
   selector: 'page-bebida',
   templateUrl: 'bebida.html'
 })
+
 export class BebidaPage {
-  constructor(public navCtrl: NavController, private http: Http, private alertCtrl: AlertController, public toastCtrl : ToastController) {
-
-  }
-
-  public bebidas_refrigerante = [
-  	{
-  		id: 0,
-  		img: "bebida-coca-cola.jpg",
-  		nome: "Coca-cola",
-  		preco: 4.50
-  	},
-  	{
-  		id:  1,
-  		img: "bebida-antarctica.jpg",
-  		nome: "Antártica",
-  		preco: 4.50
-  	},
-  	{
-  		id: 2,
-  		img: "bebida-ice-cola.jpeg",
-  		nome: "Ice cola",
-  		preco: 4.50
-  	}
-  ]
-
-  public bebidas_cha = [
-	{
-		id: 0,
-		img: "cha-preto.jpeg",
-  		nome: "Chá Preto",
-  		preco: 23.50
-	},
-	{
-		id: 1,
-		img: "cha-hortela.jpeg",
-  		nome: "Chá de Hortelã",
-  		preco: 13.50
-	},
-	{
-		id: 1,
-		img: "cha-canela.jpeg",
-  		nome: "Chá de Canela",
-  		preco: 6.80
-	}
-  ]
-
-  public bebidas_suco = [
-  	{
-  		id: 0,
-		img: "suco-melancia.jpeg",
-  		nome: "Melancia",
-  		preco: 23.50
-  	},
-  	{
-  		id: 1,
-		img: "suco-tangerina.jpeg",
-  		nome: "Tangerina",
-  		preco: 23.50
-  	},
-  	{
-  		id: 2,
-		img: "suco-limao.jpeg",
-  		nome: "Limão",
-  		preco: 23.50
-  	}
-  ]
-
-
+  public refrigerante = [];
+  public cha = []
+  public suco = [];
   
+  constructor(public navCtrl: NavController, public api: ApiProvider, public Funcoes: FuncoesProvider) {
+    this.api.obterProdutosAPI().subscribe((db)  => {
+      this.refrigerante = db.refrigerantes;
+      this.cha = db.cha;
+      this.suco = db.suco;
+    });
+  }
+  
+    addCarrinho(x) { // Adiciona um item ao carrinho e exibe um TOAST de confirmação
+      if (x.versoes.length > 1) {
+         this.navCtrl.push(AdicionarItemPage, {Item: x});
+      }  else {
+        this.Funcoes.compra(x);
+      }
+    }
 
-//    Addpedido(x) {
-      //parseInt(this.carrinho.qtd);
-//      this.carrinho.produto.push(x.nome);
-  //    this.carrinho.qtd.push(2);
-    //  console.log(this.carrinho);
-  //  }
+     verDetalheProd(x) {
+      this.navCtrl.push (DetalhePage, {Produto: x});
+    }
 
+     carrinhoPage() { // Abre CarrinhoPage com a array carrinho como parametro
+      this.navCtrl.push(CarrinhoPage);
+    }
+
+    confirmaCompra() { // Exibe um ALERT de confirmação do efetuamento do pedido
+      this.Funcoes.confirmaCompra();
+    }
 }

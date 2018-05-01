@@ -1,57 +1,41 @@
+//Components
 import { Component } from '@angular/core';
 import { IonicPage, NavController, NavParams, AlertController } from 'ionic-angular';
 
-/**
- * Generated class for the AdicionarItemPage page.
- *
- * See https://ionicframework.com/docs/components/#navigation for more info on
- * Ionic pages and navigation.
- */
+//Pages
+import { CarrinhoPage } from '../carrinho/carrinho';
+
+//Providers
+import { CarrinhoProvider } from '../../providers/carrinho/carrinho';
+import {FuncoesProvider} from '../../providers/funcoes/funcoes';
 
 @IonicPage()
 @Component({
-  selector: 'page-adicionar-item',
-  templateUrl: 'adicionar-item.html',
+	selector: 'page-adicionar-item',
+  	templateUrl: 'adicionar-item.html',
 })
+
 export class AdicionarItemPage {
-
-  constructor(public navCtrl: NavController, public navParams: NavParams, private alertCtrl: AlertController) {
+	constructor(public carProvider: CarrinhoProvider, public Funcoes: FuncoesProvider,
+				public navCtrl: NavController, public navParams: NavParams, 
+				private alertCtrl: AlertController) {
   }
+	
+    public Item = this.navParams.get('Item');
+  	
+    ionViewDidLoad() {
+		console.log('ionViewDidLoad AdicionarItemPage');	
+  	}
 
-  private Item = this.navParams.get('Item');
-  public carrinho = new Array<any>();
+  	compra(version) {
+		  this.Funcoes.compra(this.Item, version);
+  	}
+  	
+  	 carrinhoPage() { // Abre CarrinhoPage com a array carrinho como parametro
+      this.navCtrl.push(CarrinhoPage);
+    }
 
-  ionViewDidLoad() {
-    console.log('ionViewDidLoad AdicionarItemPage');
-  }
-
-  compra(version) {
-  	let prompt = this.alertCtrl.create({
-      title: this.Item.nome,
-      message: "Quantas Unidades?",
-      inputs: [
-        {
-          name: 'qtd',
-          placeholder: 'Vou querer...',
-          type: 'number'
-        },
-      ],
-      buttons: [
-        {
-          text: 'Cancel',
-          handler: data => {
-            console.log('Cancel clicked');
-          }
-        },
-        {
-          text: 'Save',
-          handler: data => {
-          	this.carrinho.push(this.Item);
-            console.log(this.carrinho);
-          }
-        }
-      ]
-    });
-    prompt.present();
-  }
+    confirmaCompra() { // Exibe um ALERT de confirmação do efetuamento do pedido
+  		this.Funcoes.confirmaCompra();
+  	}
 }

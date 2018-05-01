@@ -1,66 +1,86 @@
 <ion-header>
-  <ion-navbar>
-    <ion-title>
-      Àrea de bebidas
-    </ion-title>
-  </ion-navbar>
+	<ion-navbar>
+    	<ion-title>
+      		Àrea de bebidas
+    	</ion-title>
+  	</ion-navbar>
 </ion-header>
 
 <ion-content padding>
-  <ion-list>
-    <ion-list-header>
-      Refrigerantes
-    </ion-list-header>
-    <ion-item *ngFor='let x of bebidas_refrigerante'>
+  	<ion-list>
+    	<ion-list-header text-center>
+      		<h2>Refrigerantes</h2>
+           <img src="../../assets/imgs/refrigerante.png" class="icon-list-header">
+    	</ion-list-header>
+
+	    <ion-item *ngFor='let x of refrigerante'>
+	     	<ion-avatar item-start>
+	        	<img src="../../assets/imgs/{{ x.img }}">
+	      	</ion-avatar>
+
+	      	<h2>{{x.nome}}</h2>
+
+	       	<button ion-button icon-right (click)="verDetalheProd(x)" color="light">
+  Detalhes
+  <ion-icon name="open"></ion-icon>
+</button>
+       <button ion-button icon-right (click)="addCarrinho(x)" color="secondary">
+  Adicionar
+  <ion-icon name="add"></ion-icon>
+</button>
+	    </ion-item>
+  	</ion-list>
+
+<p>
+  	<ion-list>
+    	<ion-list-header text-center>
+      		<h2>Chás</h2>
+          <img src="../../assets/imgs/cha.png" class="icon-list-header">
+    	</ion-list-header>
+    <ion-item *ngFor='let x of cha'>
       <ion-avatar item-start>
         <img src="../../assets/imgs/{{ x.img }}">
       </ion-avatar>
       <h2>{{x.nome}}</h2>
-      <p><b>Preço: </b>R$ {{ x.preco }}</p>
-       <button ion-button icon-right (click)="AddCarrinho(x)">
-  Adicionar Pedido
+   
+     <button ion-button icon-right (click)="verDetalheProd(x)" color="light">
+  Detalhes
+  <ion-icon name="open"></ion-icon>
+</button>
+       <button ion-button icon-right (click)="addCarrinho(x)" color="secondary">
+  Adicionar
   <ion-icon name="add"></ion-icon>
 </button>
     </ion-item>
   </ion-list>
-
+</p>
+<p>
   <ion-list>
-    <ion-list-header>
-      Chás
+    <ion-list-header text-center>
+      <h2>Sucos</h2>
+      <img src="../../assets/imgs/suco.png" class="icon-list-header">
     </ion-list-header>
-    <ion-item *ngFor='let x of bebidas_cha'>
+    <ion-item *ngFor='let x of suco'>
       <ion-avatar item-start>
         <img src="../../assets/imgs/{{ x.img }}">
       </ion-avatar>
       <h2>{{x.nome}}</h2>
-      <p><b>Preço: </b>R$  {{ x.preco }}</p>
-     <button ion-button icon-right (click)="AddCarrinho(x)">
-  Adicionar Pedido
-<ion-icon name="add"></ion-icon>
+
+     <button ion-button icon-right (click)="verDetalheProd(x)" color="light">
+  Detalhes
+  <ion-icon name="open"></ion-icon>
+</button>
+       <button ion-button icon-right (click)="addCarrinho(x)" color="secondary">
+  Adicionar
+  <ion-icon name="add"></ion-icon>
 </button>
     </ion-item>
   </ion-list>
-
-  <ion-list>
-    <ion-list-header>
-      Sucos
-    </ion-list-header>
-    <ion-item *ngFor='let x of bebidas_suco'>
-      <ion-avatar item-start>
-        <img src="../../assets/imgs/{{ x.img }}">
-      </ion-avatar>
-      <h2>{{x.nome}}</h2>
-      <p><b>Preço: </b>R$  {{ x.preco }}</p>
-     <button ion-button icon-right (click)="AddCarrinho(x)">
-  Adicionar Pedido
-    <ion-icon name="add"></ion-icon>
-</button>
-    </ion-item>
-  </ion-list>
-
+</p>
    <ion-fab right bottom>
     <button ion-fab color="blue"><ion-icon name="more"></ion-icon></button>
     <ion-fab-list side="left">
+      <button ion-fab (click)="carrinhoPage()"><ion-icon name="locate"></ion-icon></button>
     <button ion-fab (click)="carrinhoPage()"><ion-icon name="cart"></ion-icon></button>
     <button ion-fab (click)="confirmaCompra()"><ion-icon name="checkmark"></ion-icon></button>
   </ion-fab-list>

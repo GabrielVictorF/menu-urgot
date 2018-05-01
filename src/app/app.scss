@@ -4,7 +4,8 @@
 // App Global Sass
 // --------------------------------------------------
 // Put style rules here that you want to apply globally. These
-// styles are for the entire app and not just one component.
+// styles are f
+//or the entire app and not just one component.
 // Additionally, this file can be also used as an entry point
 // to import other Sass files to be included in the output CSS.
 //
@@ -17,7 +18,7 @@
 
 .toolbar-background{
 		background: #FF8C00;
-}
+} 
 
 .tabbar{
 	background: #ffe8cc;
@@ -25,4 +26,23 @@
 
 tabbar show-tabbar {
 	background: red;
+}
+
+.content {
+	background: #e58122;
+} 
+
+.list-header {
+		border-radius: 11px;
+		background: #f2dfb8;
+		vertical-align: middle;
+}
+
+.item {
+	box-shadow: 0 10px 20px rgba(0,0,0,0.19), 0 6px 6px rgba(0,0,0,0.23);
+}
+
+img.icon-list-header {
+	vertical-align: middle;
+	width: 3rem;
 }

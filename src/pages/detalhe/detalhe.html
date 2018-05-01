@@ -1,31 +1,44 @@
-<!--
-  Generated template for the DetalhePage page.
-
-  See http://ionicframework.com/docs/components/#navigation for more info on
-  Ionic pages and navigation.
--->
+<!-- PÁGINA DE DETALHE DO PRODUTO QUE FOR SELECIONADO-->
 <ion-header>
-
-  <ion-navbar>
-    <ion-title>Detalhe [{{ produto.nome }}]   <ion-icon name="happy"></ion-icon></ion-title>
-  </ion-navbar>
-
+    <ion-navbar>
+        <ion-title>
+            Detalhe [{{ produto.nome }}]   
+            <ion-icon name="happy"></ion-icon>
+        </ion-title>
+    </ion-navbar>
 </ion-header>
-
 
 <ion-content>
 	<ion-card>
-  <img src="../../assets/imgs/{{produto.img}}">
-  <ion-card-content>
-    <ion-card-title>
-      {{ produto.categoria }} {{ produto.nome }}
-      </ion-card-title>	
-    <p>
-    <br>
-     <b>Preço:</b> {{produto.preco}} R$
-     <br>
-     <b>Disponível em:</b> <span *ngFor='let version of produto.versoes'>{{version}} | </span>
-    </p>
-  </ion-card-content>
-</ion-card>
+        <img src="../../assets/imgs/{{produto.img}}">
+        <ion-card-content>
+            <ion-card-title>
+                {{ produto.categoria }} {{ produto.nome }}
+            </ion-card-title>	
+    
+            <p>
+            <br>
+                
+            <ion-icon name="pricetags"></ion-icon>
+            <b>Preços:</b> <span *ngFor='let precos of produto.versoes'>{{precos.preco}} R$ | </span>
+            <br>
+            <ion-icon name="basket"></ion-icon>
+            <b>Disponível em:</b> <span *ngFor='let version of produto.versoes'>{{version.peso}} | </span>
+            </p>
+          </ion-card-content>
+    </ion-card>
+
+    <button ion-button full (click)="addCarrinho(produto)" icon-end color="secondary"> 
+         Adicionar {{ produto.nome }} ao carrinho
+         <ion-icon name="add"></ion-icon>
+    </button>
+
+    <ion-fab right bottom>
+        <button ion-fab color="blue"><ion-icon name="more"></ion-icon></button>
+        <ion-fab-list side="left">
+            <button ion-fab (click)="carrinhoPage()"><ion-icon name="locate"></ion-icon></button>
+            <button ion-fab (click)="carrinhoPage()"><ion-icon name="cart"></ion-icon></button>
+            <button ion-fab (click)="confirmaCompra()"><ion-icon name="checkmark"></ion-icon></button>
+        </ion-fab-list>
+    </ion-fab>
 </ion-content>
