@@ -1,5 +1,6 @@
 import { Component } from '@angular/core';
 import { IonicPage, NavController, NavParams } from 'ionic-angular';
+import { TabsPage } from '../tabs/tabs';
 
 /**
  * Generated class for the HomeSlidePage page.
@@ -22,4 +23,7 @@ export class HomeSlidePage {
     console.log('ionViewDidLoad HomeSlidePage');
   }
 
+  irAplicativo() {
+  	this.navCtrl.push(TabsPage);
+  }
 }

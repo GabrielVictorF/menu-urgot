@@ -15,18 +15,44 @@
 
 <ion-content>
 	<ion-slides pager>
+  <ion-slide style="background-color: #79A7F1">
 
-  <ion-slide style="background-color: #4286f4">
     <img src="../../assets/imgs/home-slide1.png">
+    <button ion-button (click)="irAplicativo()" icon-right>
+    	Skip
+    	<ion-icon name="exit"></ion-icon>
+	</button>
   </ion-slide>
 
-  <ion-slide style="background-color: blue">
-    <h2>Slide 2</h2>
+  <ion-slide style="background-color: #CB1313">
+    <img src="../../assets/imgs/slide2.png">
+    <button ion-button (click)="irAplicativo()" icon-right color="danger">
+    	Skip
+    	<ion-icon name="exit"></ion-icon>
+	</button>
   </ion-slide>
 
-  <ion-slide style="background-color: red">
-    <h2>Slide 3</h2>
+  <ion-slide style="background-color: #9CEA49">
+    <img src="../../assets/imgs/slide3.png">
+ <button ion-button (click)="irAplicativo()" icon-right color="secondary">
+    	Skip
+    	<ion-icon name="exit"></ion-icon>
+	</button>
   </ion-slide>
 
+  <ion-slide style="background-color: #BFC0B3">
+  <img src="../../assets/imgs/slide4.png">
+ <button ion-button (click)="irAplicativo()" icon-right color="light">
+    	Skip
+    	<ion-icon name="exit"></ion-icon>
+	</button>
+</ion-slide>
+ <ion-slide style="background-color: #FF8C00">
+  <img src="../../assets/imgs/slide5.png">
+   <button ion-button (click)="irAplicativo()" icon-right>
+    	Ir para o aplicativo
+    	<ion-icon name="home"></ion-icon>
+	</button>
+</ion-slide>
 </ion-slides>
 </ion-content>
