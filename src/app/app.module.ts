@@ -14,6 +14,7 @@ import {CarrinhoPage} from '../pages/carrinho/carrinho';
 import { DetalhePage } from '../pages/detalhe/detalhe';
 import { AdicionarItemPage } from '../pages/adicionar-item/adicionar-item';
 import { EditarPage } from '../pages/editar/editar';
+import { HomeSlidePage } from '../pages/home-slide/home-slide';
 
 import { StatusBar } from '@ionic-native/status-bar';
 import { SplashScreen } from '@ionic-native/splash-screen';
@@ -43,7 +44,8 @@ import { ApiProvider } from '../providers/api/api';
     DetalhePage,
     AdicionarItemPage,
     EditarPage,
-    PedidoDetalhePage
+    PedidoDetalhePage,
+    HomeSlidePage
   ],
   imports: [
     BrowserModule,
@@ -62,7 +64,8 @@ import { ApiProvider } from '../providers/api/api';
     DetalhePage,
     AdicionarItemPage,
     EditarPage,
-    PedidoDetalhePage
+    PedidoDetalhePage,
+    HomeSlidePage
   ],
   providers: [
     StatusBar,

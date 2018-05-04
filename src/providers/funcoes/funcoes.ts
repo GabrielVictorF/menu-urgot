@@ -115,7 +115,7 @@ export class FuncoesProvider {
                         this.showToast('bottom', item.nome + ' foi adicionado ao seu carrinho!');
                     } else {
                         this.showToast('bottom', 'O campo quantidade tem que ser preenchido');
-                        this.compra(version, item);
+                        this.compra(item, version);
                     }
                 }
             }]
