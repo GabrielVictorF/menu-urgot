@@ -1,6 +1,7 @@
 import { Component } from '@angular/core';
 import { IonicPage, NavController, NavParams } from 'ionic-angular';
 import { TabsPage } from '../tabs/tabs';
+import { Storage } from '@ionic/storage';
 
 /**
  * Generated class for the HomeSlidePage page.
@@ -15,15 +16,15 @@ import { TabsPage } from '../tabs/tabs';
   templateUrl: 'home-slide.html',
 })
 export class HomeSlidePage {
-
-  constructor(public navCtrl: NavController, public navParams: NavParams) {
+  constructor(public navCtrl: NavController, public navParams: NavParams, private storage: Storage) {
   }
 
-  ionViewDidLoad() {
+  ionViewDidLoad() { 
     console.log('ionViewDidLoad HomeSlidePage');
   }
 
   irAplicativo() {
+  	this.storage.set('slideVisto', true);
   	this.navCtrl.push(TabsPage);
   }
 }

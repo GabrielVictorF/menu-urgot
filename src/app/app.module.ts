@@ -4,6 +4,7 @@ import { IonicApp, IonicModule, IonicErrorHandler } from 'ionic-angular';
 import { MyApp } from './app.component';
 import { AngularFireModule } from "angularfire2";
 import { AngularFireDatabase } from 'angularfire2/database';
+import { IonicStorageModule } from '@ionic/storage';
 
 import { PedidosPage } from '../pages/pedidos/pedidos';
 import { PedidoDetalhePage } from '../pages/pedido-detalhe/pedido-detalhe';
@@ -51,7 +52,8 @@ import { ApiProvider } from '../providers/api/api';
     BrowserModule,
     IonicModule.forRoot(MyApp),
     HttpModule,
-    AngularFireModule.initializeApp(config)
+    AngularFireModule.initializeApp(config),
+     IonicStorageModule.forRoot()
   ],
   bootstrap: [IonicApp],
   entryComponents: [
