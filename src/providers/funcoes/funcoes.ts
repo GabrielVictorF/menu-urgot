@@ -11,7 +11,6 @@ import { CarrinhoProvider } from '../carrinho/carrinho';
 @Injectable()
 export class FuncoesProvider {
     public pedido = [];
-    private qtdPedidos: number = 0;
     
     constructor (public toastCtrl : ToastController, public alertCtrl: AlertController, 
                  public carProvider: CarrinhoProvider) {
@@ -19,28 +18,37 @@ export class FuncoesProvider {
     }
     
     public informaMesa() {
-        let prompt = this.alertCtrl.create({
-            title: "Mesa",
-            message: "Qual mesa?",
-            inputs: [{
-                name: 'mesa',
-                placeholder: 'É a mesa...',
-                type: 'number'
-            }],
-            buttons: [{
-                text: 'Cancelar'
-            },
-            {
-                text: 'Salvar',
-                handler: data => {
-                    //this.carProvider.carrinho.mesa = data.mesa;
-                    ///this.carProvider.carrinho.numPedido = this.qtdPedidos + 1;
-                    this.qtdPedidos++;
-                    this.showToast('bottom', 'OK, mesa ' + data.mesa + '.');
-                }
-            }]
-        });
-        prompt.present();
+        if (this.carProvider.carrinho.length == 0) {
+            this.showToast('bottom', 'Primeiro é necessário pelo menos 1 item no carrinho!');
+        }
+        else {
+            let prompt = this.alertCtrl.create({
+                title: "Mesa",
+                message: "Qual mesa?",
+                inputs: [{
+                    name: 'mesa',
+                    placeholder: 'É a mesa...',
+                    type: 'number'
+                }],
+                buttons: [{
+                    text: 'Cancelar'
+                },
+                {
+                    text: 'Salvar',
+                    handler: data => {
+                        if(data.mesa == '') {
+                            this.showToast('bottom', 'Por favor insira uma mesa válida.');
+                            this.informaMesa();
+                        }
+                        else {
+                            this.carProvider.carrinho[0].mesa = data.mesa;
+                            this.showToast('bottom', 'OK, mesa ' + data.mesa + '.');
+                        }
+                    }
+                }]
+            });
+            prompt.present();
+        }
     }
     
     public erroAPI(req) { // Ao ocorrer erro ao obter os dados exibe um ALERT de erro
@@ -64,6 +72,8 @@ export class FuncoesProvider {
     confirmaCompra(){
         if(this.carProvider.carrinhoVazio())
             this.showToast('bottom', 'Carrinho vazio! Primeiro adicione alguns itens :D!');
+        else if (this.carProvider.carrinho[0].mesa == undefined)
+            this.showToast('bottom', 'Por favor adicione a mesa do pedido!');
         else {
             let confirm = this.alertCtrl.create({ // Exibe o Alert
                 title: 'Confirmação de Pedido',

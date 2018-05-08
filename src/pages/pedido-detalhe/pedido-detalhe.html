@@ -1,0 +1,36 @@
+<!--
+  Generated template for the PedidoDetalhePage page.
+
+  See http://ionicframework.com/docs/components/#navigation for more info on
+  Ionic pages and navigation.
+-->
+<ion-header>
+
+  <ion-navbar>
+    <ion-title>Detalhe do Pedido</ion-title>
+  </ion-navbar>
+
+</ion-header>
+
+
+<ion-content padding>
+	<ion-list>
+		<ion-list-header text-center>
+			<h2>Pedido 1</h2>
+		</ion-list-header>
+		<ion-item>
+			<h2 text-center>Situação do pedido: {{ pedido[0].status }}</h2>
+			<h2 text-center>Mesa: {{ pedido[0].mesa }}</h2>
+		</ion-item>
+		<ion-item *ngFor='let x of pedido'>
+			<ion-avatar item-start>
+                <img src="../../assets/imgs/{{ x.img }}">
+            </ion-avatar>
+			<h2><b>Item:</b> {{ x.nome }}</h2>
+			<h2><b>Quantidade:</b> {{ x.qtd }}</h2>
+			<h2><b>Categoria:</b> {{ x.categoria }}</h2>
+			<h2><b>Peso:</b> {{ x.versao.peso }}</h2>
+			<h2><b>Preço:</b> {{ x.versao.preco }}R$</h2>
+		</ion-item>
+	</ion-list>
+</ion-content>

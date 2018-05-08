@@ -1,0 +1,32 @@
+<!--
+  Generated template for the AdicionarItemPage page.
+
+  See http://ionicframework.com/docs/components/#navigation for more info on
+  Ionic pages and navigation.
+-->
+<ion-header>
+  	<ion-navbar>
+		<ion-title>Disponível em</ion-title>
+  	</ion-navbar>
+</ion-header>
+
+<ion-content padding>
+
+  <ion-item *ngFor='let version of Item.versoes' text-center>
+    <ion-icon name="flower"></ion-icon><b> Opção: </b>{{ version.peso }} -
+    <ion-icon name="pricetag"></ion-icon><b> Preço: </b>{{ version.preco }}
+    <button ion-button full (click)="compra(version)" icon-end> 
+     OK
+     <ion-icon name="redo"></ion-icon>
+  </button>
+  </ion-item>
+
+  <ion-fab right bottom>
+    <button ion-fab color="blue"><ion-icon name="more"></ion-icon></button>
+    <ion-fab-list side="left">
+      <button ion-fab (click)="carrinhoPage()"><ion-icon name="locate"></ion-icon></button>
+    <button ion-fab (click)="carrinhoPage()"><ion-icon name="cart"></ion-icon></button>
+    <button ion-fab (click)="confirmaCompra()"><ion-icon name="checkmark"></ion-icon></button>
+  </ion-fab-list>
+  </ion-fab>
+</ion-content>

@@ -1,0 +1,46 @@
+<!--
+	Generated template for the CarrinhoPage page.
+
+	See http://ionicframework.com/docs/components/#navigation for more info on
+	Ionic pages and navigation.
+-->
+<ion-header>
+
+	<ion-navbar>
+		<ion-title>Meu Carrinho</ion-title>
+	</ion-navbar>
+
+</ion-header>
+
+<ion-content>
+	<img *ngIf="carrinho_vazio" src="../../assets/imgs/ops.png"> 
+	<button ion-button full *ngIf="carrinho_vazio" (click) = "abrirHome()">OK vamos!</button>
+	<ion-list>
+		<ion-item-sliding *ngFor='let x of carrinho'>
+		<ion-item >
+			<ion-avatar item-start>
+				<img src="../../assets/imgs/{{x.img}}">
+			</ion-avatar>
+			<ion-icon name="basket"></ion-icon><b> Produto:</b> {{x.categoria}} {{ x.nome }} <br>
+			<ion-icon name="bowtie"></ion-icon><b> Quantidade: </b> {{ x.qtd }} <br>
+			<ion-icon name="build"></ion-icon><b> Versão: </b> {{x.versao.peso}} <br>
+			<ion-icon name="pricetag"></ion-icon><b> Preço: </b> {{ x.versao.preco }} R$
+		</ion-item>
+			<ion-item-options side="right">
+			<button ion-button color="danger" item-end outline icon-only class="button-carrinho" (click)="removerItem(x)">
+					<ion-icon name='trash' is-active="false"></ion-icon>
+			</button>
+			</ion-item-options>
+		</ion-item-sliding>
+	</ion-list>
+
+	<ion-fab right bottom>
+		<button ion-fab color="blue"><ion-icon name="more"></ion-icon></button>
+		<ion-fab-list side="left">
+			 <button ion-fab (click)="informaMesa()"><ion-icon name="locate"></ion-icon></button>
+		<button ion-fab (click)="confirmaCompra()"><ion-icon name="checkmark"></ion-icon></button>
+	</ion-fab-list>
+	</ion-fab>
+</ion-content>
+
+

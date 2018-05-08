@@ -11,10 +11,9 @@ import { PedidoDetalhePage } from '../pages/pedido-detalhe/pedido-detalhe';
 import { LanchePage } from '../pages/lanche/lanche';
 import { BebidaPage } from '../pages/bebida/bebida';
 import { TabsPage } from '../pages/tabs/tabs';
-import {CarrinhoPage} from '../pages/carrinho/carrinho';
+import { CarrinhoPage } from '../pages/carrinho/carrinho';
 import { DetalhePage } from '../pages/detalhe/detalhe';
 import { AdicionarItemPage } from '../pages/adicionar-item/adicionar-item';
-import { EditarPage } from '../pages/editar/editar';
 import { HomeSlidePage } from '../pages/home-slide/home-slide';
 
 import { StatusBar } from '@ionic-native/status-bar';
@@ -44,7 +43,6 @@ import { ApiProvider } from '../providers/api/api';
     CarrinhoPage,
     DetalhePage,
     AdicionarItemPage,
-    EditarPage,
     PedidoDetalhePage,
     HomeSlidePage
   ],
@@ -65,7 +63,6 @@ import { ApiProvider } from '../providers/api/api';
     CarrinhoPage,
     DetalhePage,
     AdicionarItemPage,
-    EditarPage,
     PedidoDetalhePage,
     HomeSlidePage
   ],
